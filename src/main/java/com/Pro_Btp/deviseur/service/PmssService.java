@@ -19,7 +19,7 @@ public class PmssService {
         return  pmssRepository.save(pmss);
     }
 
-    public Optional<Pmss> recupererPmssAvecId(Long id){
+    public Optional<Pmss> recupererPmssAvecId(String id){
         return pmssRepository.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class PmssService {
         return pmssRepository.save(pmss);
     }
 
-    public void supprimerPmss (Long id){
+    public void supprimerPmss (String id){
         pmssRepository.deleteById(id);
     }
 }

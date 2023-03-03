@@ -12,9 +12,11 @@ import java.time.LocalDate;
 @Entity
 @Table(	name = "pmss")
 public class Pmss {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+    @Id @Column(length = 20)
+    private String id;
     private int montant;
     private LocalDate date = LocalDate.of(2022, 05, 13);
 }
