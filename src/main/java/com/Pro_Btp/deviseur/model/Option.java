@@ -10,15 +10,13 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(	name = "regime")
-public class Regime {
+@Table(	name = "option")
+public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nomRegime;
+    private String nomOption;
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    @JoinColumn(name = "regime_id")
-    private Set<Formule> formules = new HashSet<>();
-//    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy = "regimeId")
-//    private Set<Formule> personsSet = new HashSet<>();
+    @JoinColumn(name = "option_id")
+    private Set<Regime> regimes = new HashSet<>();
 }
