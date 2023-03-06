@@ -18,6 +18,6 @@ public class Formule {
     private float prix_formune;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "apmss_Id", nullable = false)
+    @JoinColumn(name = "pmss_Id", nullable = false)
     private Pmss pmss;
 }
