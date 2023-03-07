@@ -14,6 +14,7 @@ public class Formule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom_formule;
+    private String appartenance;
     private float taux_pmss;
     private float prix_formune;
 

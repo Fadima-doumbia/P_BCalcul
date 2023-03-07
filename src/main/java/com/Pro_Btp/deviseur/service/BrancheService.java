@@ -33,23 +33,30 @@ public class BrancheService {
 //        int nbr = 0;
         Optional<Pmss> pmss = pmssRepository.findById(branche.getPmss());
         Set<Option> optionSet = branche.getOptions();
+        String brancheInitial = branche.getNomBranche();
 
+        String ap = branche.getNomBranche();
         optionSet.forEach(option -> {
+            String optionInitial = brancheInitial+" "+option.getNomOption();
             Set<Regime> listeRegime= new HashSet<>();
             option.getRegimes().forEach(regime -> {
+                String regimeInitial = optionInitial + " " +regime.getNomRegime();
                 Set<Formule> listeFormule= new HashSet<>();
                 regime.getFormules().forEach(formule -> {
+                    formule.setAppartenance(regimeInitial);
                     formule.setPmss(pmss.get());
                     Formule formuleOptional = formuleRepository.save(formule);
                     listeFormule.add(formuleOptional);
                 });
 
                 regime.setFormules(listeFormule);
+                regime.setAppartenance(optionInitial);
                 Regime regimeSauvegarde = regimeRepository.save(regime);
                 listeRegime.add(regimeSauvegarde);
             });
 
             option.setRegimes(listeRegime);
+            option.setAppartenance(brancheInitial);
             Option optionSauvegarde = optionRepository.save(option);
             listeOption.add(optionSauvegarde);
         });

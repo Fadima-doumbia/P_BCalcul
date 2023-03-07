@@ -16,6 +16,8 @@ public class Regime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomRegime;
+    private String appartenance;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "regime_id")
     private Set<Formule> formules = new HashSet<>();

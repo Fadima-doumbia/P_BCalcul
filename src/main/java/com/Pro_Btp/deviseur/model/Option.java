@@ -16,6 +16,8 @@ public class Option {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomOption;
+    private String appartenance;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "option_id")
     private Set<Regime> regimes = new HashSet<>();
