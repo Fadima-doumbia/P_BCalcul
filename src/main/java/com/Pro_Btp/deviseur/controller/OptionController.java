@@ -19,7 +19,7 @@ public class OptionController {
     @Autowired
     OptionService optionService;
 
-    @GetMapping("/{FormuleId}")
+    @GetMapping("/{id}")
         public Optional<Option> recupererUnOption(@PathVariable("id") final Long id){
             return optionService.recupererOptionAvecId(id);
         }
